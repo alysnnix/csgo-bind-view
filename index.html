@@ -1,153 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bind view</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>bind view</title>
-</head>
+  <style>
+    summary {
+      cursor: pointer;
+    }
 
-<style>
-  summary {
-    cursor: pointer;
-  }
+    * {
+      background-color: rgb(36, 36, 36);
+      color: white;
+    }
+  </style>
 
-  * {
-    background-color: rgb(36, 36, 36);
-    color: white;
-  }
+  <script type="text/javascript">
+    function copyToClipboard(textId) {
+      var text = document.getElementById(textId);
+      navigator.clipboard.writeText(text.textContent);
+    }
+  </script>
 
-</style>
+  <body>
+    <details>
+      <summary>
+        todas as binds em um comando só
 
-<script type="text/javascript">
-  function copyToClipboard(textId) {
-    var text = document.getElementById(textId);
-    navigator.clipboard.writeText(text.textContent);
-  }
-</script>
+        <button onclick="copyToClipboard('txt-1')">copiar</button>
+      </summary>
+      <p id="txt-1">
+        alias "+jumpthrow" "+jump;-attack"; alias "-jumpthrow" "-jump"; bind
+        space "+jumpthrow +jump";bind mwheelup +jump;bind mwheeldown +jump;bind
+        space +jump;bindtoggle j voice_enable;bind v "use weapon_knife; use
+        weapon_c4; drop; slot1";bind m "r_cleardecals";bind alt "toggle
+        cl_righthand 0 1";bind o "incrementvar cl_radar_scale 0 1 0.25";bind
+        "MOUSE1" "+attack;r_cleardecals";bind mouse5 "use weapon_flashbang";bind
+        mouse4 "use weapon_smokegrenade";bind x "use weapon_hegrenade";bind c
+        "use weapon_molotov;use weapon_incgrenade"
+      </p>
+    </details>
 
-<body>
-  <details>
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        bind de jumpthrow
+        <button onclick="copyToClipboard('txt-2')">copiar</button>
+      </summary>
+
+      <p id="txt-2">
+        alias "+jumpthrow" "+jump;-attack"; alias "-jumpthrow" "-jump"; bind
+        space "+jumpthrow +jump"
+      </p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        pular com mouse
+        <button onclick="copyToClipboard('txt-3')">copiar</button>
+      </summary>
+      <p id="txt-3">
+        bind mwheelup +jump;bind mwheeldown +jump;bind space +jump
+      </p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        ativar/desativar voz dos amigos com j
+        <button onclick="copyToClipboard('txt-4')">copiar</button>
+      </summary>
+      <p id="txt-4">bindtoggle j voice_enable</p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        limpar sangue com m
+        <button onclick="copyToClipboard('txt-5')">copiar</button>
+      </summary>
+      <p id="txt-5">bind m "r_cleardecals"</p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        trocar arma de mão com alt
+        <button onclick="copyToClipboard('txt-6')">copiar</button>
+      </summary>
+      <p id="txt-6">bind alt "toggle cl_righthand 0 1"</p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        dar zoon no radar com o
+        <button onclick="copyToClipboard('txt-7')">copiar</button>
+      </summary>
+      <p id="txt-7">bind o "incrementvar cl_radar_scale 0 1 0.25"</p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        atirar e limpar o sangue com mouse1
+        <button onclick="copyToClipboard('txt-8')">copiar</button>
+      </summary>
+      <p id="txt-8">bind "MOUSE1" "+attack;r_cleardecals"</p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        BINDS DE GRANADAS
+        <button onclick="copyToClipboard('txt-9')">copiar</button> <br /><br />
+        flash com botão de voltar do mouse <br />
+        smoke com o botão de avançar <br />
+        x para usar granada <br />
+        c para usar molotov <br />
+      </summary>
+      ---------------------------------------
+      <p id="txt-9">
+        bind mouse5 "use weapon_flashbang"; bind mouse4 "use
+        weapon_smokegrenade"; bind x "use weapon_hegrenade"; bind c "use
+        weapon_molotov; use weapon_incgrenade"
+      </p>
+    </details>
+
+    <br />
+    <br />
+
+    <details>
+      <summary>
+        TREINO
+        <button onclick="copyToClipboard('txt-9')">copiar</button> <br /><br />
+      </summary>
+      ---------------------------------------
+      <p id="txt-9">
+        sv_cheats 1;mp_freezetime 0;mp_roundtime 60;mp_roundtime_defuse
+        60;mp_maxmoney 60000;mp_startmoney 60000;mp_buytime
+        60000;ammo_grenade_limit_total 5;sv_grenade_trajectory 1;mp_drop_knife_enable 1;mp_restartgame 1
+      </p>
+    </details>
+
+    <br>
+    <br>
+
     <summary>
-      todas as binds em um comando só
-
-      <button onclick="copyToClipboard('txt-1')">copiar</button>
+      Facas
     </summary>
-    <p id="txt-1">
-      alias "+jumpthrow" "+jump;-attack"; alias "-jumpthrow" "-jump"; bind
-      space "+jumpthrow +jump";bind mwheelup +jump;bind mwheeldown +jump;bind
-      space +jump;bindtoggle j voice_enable;bind v "use weapon_knife; use
-      weapon_c4; drop; slot1";bind m "r_cleardecals";bind alt "toggle
-      cl_righthand 0 1";bind o "incrementvar cl_radar_scale 0 1 0.25";bind
-      "MOUSE1" "+attack;r_cleardecals";bind mouse5 "use weapon_flashbang";bind
-      mouse4 "use weapon_smokegrenade";bind x "use weapon_hegrenade";bind c
-      "use weapon_molotov;use weapon_incgrenade"
-    </p>
+    <ul>
+      <li>
+          M9 = give weapon_knife_m9_bayonet;ent_fire weapon_knife addoutput "classname weapon_knifegg"
+      </li>
+
+      <li>
+          BUTTERFLY = give weapon_knife_butterfly;ent_fire weapon_knife addoutput "classname weapon_knifegg"
+      </li>
+
+      <li>
+        SHADOW =  give weapon_knife_push;ent_fire weapon_knife addoutput "classname weapon_knifegg"
+
+    </li>
+
+    </ul>
+   
   </details>
 
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      bind de jumpthrow
-      <button onclick="copyToClipboard('txt-2')">copiar</button>
-    </summary>
-
-    <p id="txt-2">
-      alias "+jumpthrow" "+jump;-attack"; alias "-jumpthrow" "-jump"; bind
-      space "+jumpthrow +jump"
-    </p>
-  </details>
-
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      pular com mouse
-      <button onclick="copyToClipboard('txt-3')">copiar</button>
-    </summary>
-    <p id="txt-3">
-      bind mwheelup +jump;bind mwheeldown +jump;bind space +jump
-    </p>
-  </details>
-
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      ativar/desativar voz dos amigos com j
-      <button onclick="copyToClipboard('txt-4')">copiar</button>
-    </summary>
-    <p id="txt-4">bindtoggle j voice_enable</p>
-  </details>
-
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      limpar sangue com m
-      <button onclick="copyToClipboard('txt-5')">copiar</button>
-    </summary>
-    <p id="txt-5">bind m "r_cleardecals"</p>
-  </details>
-
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      trocar arma de mão com alt
-      <button onclick="copyToClipboard('txt-6')">copiar</button>
-    </summary>
-    <p id="txt-6">bind alt "toggle cl_righthand 0 1"</p>
-  </details>
-
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      dar zoon no radar com o
-      <button onclick="copyToClipboard('txt-7')">copiar</button>
-    </summary>
-    <p id="txt-7">bind o "incrementvar cl_radar_scale 0 1 0.25"</p>
-  </details>
-
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      atirar e limpar o sangue com mouse1
-      <button onclick="copyToClipboard('txt-8')">copiar</button>
-    </summary>
-    <p id="txt-8">bind "MOUSE1" "+attack;r_cleardecals"</p>
-  </details>
-
-  <br />
-  <br />
-
-  <details>
-    <summary>
-      BINDS DE GRANADAS
-      <button onclick="copyToClipboard('txt-9')">copiar</button> <br /><br />
-      flash com botão de voltar do mouse <br />
-      smoke com o botão de avançar <br />
-      x para usar granada <br />
-      c para usar molotov <br />
-    </summary>
-    ---------------------------------------
-    <p id="txt-9">
-      bind mouse5 "use weapon_flashbang"; bind mouse4 "use
-      weapon_smokegrenade"; bind x "use weapon_hegrenade"; bind c "use
-      weapon_molotov; use weapon_incgrenade"
-    </p>
-  </details>
-</body>
-
+  
+  </body>
 </html>
