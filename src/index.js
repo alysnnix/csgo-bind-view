@@ -1,13 +1,13 @@
-let splited = [];
+let splitedBind = [];
 
 async function handleGetBinds() {
-	const res = await fetch('./binds.txt');
+	const res = await fetch('../binds.txt');
 	const content = await res.text();
-	splited = content.split('---');
+	splitedBind = content.split('---');
 }
 
 const createDetails = () => {
-	const splitMap = splited.map((item) => {
+	const splitBindMap = splitedBind.map((item, index) => {
 		const [title, content] = item.split('||');
 		const validateBreakLine = content?.includes('<br />') ? '<br>' : '';
 
@@ -15,20 +15,19 @@ const createDetails = () => {
 			<details>
 				<summary class="bind-title">
 					${title}
-				<button onclick="copyToClipboard('txt-${title}')">copiar</button>
+				<button onclick="copyToClipboard('txt-${index}')">copiar</button>
 				</summary>
-				<p id="txt-${title}">
+				<p id="txt-${index}">
 					${content}
 					${validateBreakLine}
 				</p>
 			</details>
 		`;
-
 		return structure;
 	});
 
-	const removeLastNullItem = splitMap.splice(0, splitMap.length - 1);
-	return `${removeLastNullItem.join('')}`;
+	const removeLastElement = splitBindMap.splice(0, splitBindMap.length - 1);
+	return `${removeLastElement.join('')}`;
 };
 
 async function main() {
