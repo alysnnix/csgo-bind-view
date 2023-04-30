@@ -1,5 +1,7 @@
 # Visualizador de binds para o `CSGO`
 
+![image](https://user-images.githubusercontent.com/26152669/235336517-b01cd1b5-2e60-4670-84d4-42ecc1cf7d23.png)
+
 ## Como funciona ? 
 
 A ideia é ser uma página simples contendo várias binds para que seja facil a utilização.
