@@ -1,7 +1,7 @@
 let splitedBind = [];
 
 async function handleGetBinds() {
-	const res = await fetch('../binds.txt');
+	const res = await fetch('./binds.txt');
 	const content = await res.text();
 	splitedBind = content.split('---');
 }
