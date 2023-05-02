@@ -9,43 +9,43 @@ weapon_molotov;use weapon_incgrenade"
 
 ---
 
-bind de jumpthrow com espaço ||
+espaço - bind de jumpthrow ||
 
 alias "+jumpthrow" "+jump;-attack"; alias "-jumpthrow" "-jump"; bind space "+jumpthrow +jump"
 
 ---
 
-pular com mouse ||
+scroll - pular ||
 
 bind mwheelup +jump;bind mwheeldown +jump;bind space +jump
 
 ---
 
-ativar/desativar voz dos amigos com j ||
+J - ativar/desativar voz dos amigos ||
 
 bindtoggle j voice_enable
 
 ---
 
-limpar sangue com m ||
+M - limpar sangue ||
 
 bind m "r_cleardecals"
 
 ---
 
-limpar sangue e trocar a arma de mão com alt ||
+ALT - limpar sangue e trocar a arma de mão ||
 
 bind alt "r_cleardecals; toggle cl_righthand 0 1"
 
 ---
 
-dar zoon no radar com o ||
+O - zoom no radar ||
 
 bind o "incrementvar cl_radar_scale 0 1 0.25"
 
 ---
 
-atirar e limpar o sangue com mouse1 ||
+mouse1 - atirar e limpar o sangue ||
 
 bind "MOUSE1" "+attack;r_cleardecals"
 
