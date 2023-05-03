@@ -9,6 +9,11 @@ weapon_molotov;use weapon_incgrenade"
 
 ---
 
+V - Dropar C4 ||
+bind "v" "use weapon_c4; drop;"
+
+---
+
 espaço - bind de jumpthrow ||
 
 alias "+jumpthrow" "+jump;-attack"; alias "-jumpthrow" "-jump"; bind space "+jumpthrow +jump"
