@@ -10,7 +10,7 @@ weapon_molotov;use weapon_incgrenade"
 ---
 
 V - Dropar C4 ||
-bind "v" "use weapon_c4; drop;"
+bind v "use weapon_knife; use weapon_c4; drop; slot1"
 
 ---
 
