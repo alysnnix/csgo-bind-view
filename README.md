@@ -11,3 +11,6 @@ A ideia é ser uma página simples contendo várias binds para que seja facil a 
 Basta acessar a URL `bind.alysson.dev` no navegador dentro do próprio jogo e copiar a bind que desejar
 
 ## [Base de dados](https://github.com/4lysson-a/csgo-bind-view/tree/base)
+
+Para contribuir com alguma bind acesse a base de dados
+
