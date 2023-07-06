@@ -1,9 +1,35 @@
 let splitedBind = [];
+let loading = true;
+
+function decodeContent(content) {
+  const decoder = new TextDecoder('utf-8');
+  const uint8Array = new Uint8Array([...window.atob(content)].map(char => char.charCodeAt(0)));
+  return decoder.decode(uint8Array);
+}
 
 async function handleGetBinds() {
-	const res = await fetch('./binds.txt');
-	const content = await res.text();
-	splitedBind = content.split('---');
+	const user = '4lysson-a';
+	const repo = 'csgo-bind-view';
+	const filePath = 'binds.txt';
+	const url = `https://api.github.com/repos/${user}/${repo}/contents/${filePath}`;
+
+	try {
+		const response = await fetch(url);
+
+		if (!response.ok) {
+			throw new Error(`Erro ao obter o arquivo: ${response.status} - ${response.statusText}`);
+		}
+
+		const file = await response.json();
+
+		const contentBase64 = file.content;
+		const content = decodeContent(contentBase64);
+		splitedBind = content.split('---');
+	} catch (error) {
+		console.error(error);
+	} finally {
+		loading = false;
+	}
 }
 
 const createDetails = () => {
@@ -32,7 +58,11 @@ const createDetails = () => {
 
 async function main() {
 	await handleGetBinds();
-	document.body.insertAdjacentHTML('beforeend', createDetails());
+	if (loading) {
+		document.body.insertAdjacentHTML('beforeend', '<h1>Carregando...</h1>');
+	} else {
+		document.body.insertAdjacentHTML('beforeend', createDetails());
+	}
 }
 
 main();
