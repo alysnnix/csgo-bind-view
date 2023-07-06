@@ -11,7 +11,7 @@ async function handleGetBinds() {
 	const user = '4lysson-a';
 	const repo = 'csgo-bind-view';
 	const filePath = 'binds.txt';
-	const url = `https://api.github.com/repos/${user}/${repo}/contents/${filePath}`;
+	const url = `https://api.github.com/repos/${user}/${repo}/contents/${filePath}?ref=base`;
 
 	try {
 		const response = await fetch(url);
