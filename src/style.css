@@ -31,6 +31,8 @@ p {
   border-radius: 10px;
   user-select: text;
   background: #313131;
+  -webkit-user-select: all;
+  user-select: all;
 }
 
 summary {
