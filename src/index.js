@@ -55,7 +55,7 @@ const createDetails = () => {
 		if (validateBreakLine) {
 			const splitContent = content.split('<br />');
 			const structure = splitContent.map((item) => {
-				return html`<p>${item}</p>`;
+				return `<p>${item}</p>`;
 			});
 
 			return template(structure.join(''));
@@ -64,7 +64,7 @@ const createDetails = () => {
 		let view = '';
 
 		function template(content) {
-			return html`
+			return `
 				<details>
 					<summary class="bind-title">
 						${title}
@@ -79,12 +79,12 @@ const createDetails = () => {
 		if (validateBreakLine) {
 			const splitContent = content.split('<br />');
 			const structure = splitContent.map((item, index) => {
-				return html`<p>${item}</p>`;
+				return `<p>${item}</p>`;
 			});
 			return template(structure.join(''));
 		}
 
-		view = html` <p id="txt-${index}">${content} ${validateBreakLine}</p> `;
+		view = ` <p id="txt-${index}">${content} ${validateBreakLine}</p> `;
 
 		const structure = template(view);
 		return structure;
