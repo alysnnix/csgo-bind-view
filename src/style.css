@@ -55,3 +55,9 @@ button {
 button:hover {
   background-color: black;
 }
+
+.bind-with-title-content {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+}

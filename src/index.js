@@ -2,9 +2,9 @@ let splitedBind = [];
 let loading = true;
 
 function decodeContent(content) {
-  const decoder = new TextDecoder('utf-8');
-  const uint8Array = new Uint8Array([...window.atob(content)].map(char => char.charCodeAt(0)));
-  return decoder.decode(uint8Array);
+	const decoder = new TextDecoder('utf-8');
+	const uint8Array = new Uint8Array([...window.atob(content)].map((char) => char.charCodeAt(0)));
+	return decoder.decode(uint8Array);
 }
 
 async function handleGetBinds() {
@@ -36,19 +36,57 @@ const createDetails = () => {
 	const splitBindMap = splitedBind.map((item, index) => {
 		const [title, content] = item.split('||');
 		const validateBreakLine = content?.includes('<br />') ? '<br>' : '';
+		const validateHaveIqual = content?.includes('=') ? '=' : '';
 
-		const structure = `
-			<details>
-				<summary class="bind-title">
-					${title}
-				<button onclick="copyToClipboard('txt-${index}')">copiar</button>
-				</summary>
-				<p id="txt-${index}">
+		if (validateHaveIqual) {
+			const splitContent = content.split('<br />');
+			const structure = splitContent.map((item) => {
+				const [before, after] = item.split('=');
+				return `
+          <div class="bind-with-title-content">
+            <strong>${before}</strong>
+            <p>${after}</p>
+          </div>
+        `;
+			});
+			return template(structure.join(''));
+		}
+
+		if (validateBreakLine) {
+			const splitContent = content.split('<br />');
+			const structure = splitContent.map((item) => {
+				return html`<p>${item}</p>`;
+			});
+
+			return template(structure.join(''));
+		}
+
+		let view = '';
+
+		function template(content) {
+			return html`
+				<details>
+					<summary class="bind-title">
+						${title}
+						<button onclick="copyToClipboard('txt-${index}')">copiar</button>
+					</summary>
 					${content}
-					${validateBreakLine}
-				</p>
-			</details>
-		`;
+				</details>
+			`;
+		}
+
+		// se o conteúdo tiver quebra de linha exiba em <p> diferentes
+		if (validateBreakLine) {
+			const splitContent = content.split('<br />');
+			const structure = splitContent.map((item, index) => {
+				return html`<p>${item}</p>`;
+			});
+			return template(structure.join(''));
+		}
+
+		view = html` <p id="txt-${index}">${content} ${validateBreakLine}</p> `;
+
+		const structure = template(view);
 		return structure;
 	});
 
