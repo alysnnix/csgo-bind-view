@@ -36,8 +36,9 @@ p {
 }
 
 summary {
+  cursor: pointer;    
   user-select: none;
-  cursor: pointer;
+  line-height: 30px;
   text-transform: uppercase;
 }
 
@@ -60,4 +61,12 @@ button:hover {
   display: flex;
   margin-top: 10px;
   flex-direction: column;
+}
+
+.key {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  background-color: #313131;
 }

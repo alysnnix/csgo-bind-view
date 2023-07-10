@@ -37,7 +37,7 @@ const createDetails = () => {
 		const [title, content] = item.split('||');
 		const validateBreakLine = content?.includes('<br />') ? '<br>' : '';
 		const validateHaveIqual = content?.includes('=') ? '=' : '';
-
+		
 		if (validateHaveIqual) {
 			const splitContent = content.split('<br />');
 			const structure = splitContent.map((item) => {
@@ -64,10 +64,12 @@ const createDetails = () => {
 		let view = '';
 
 		function template(content) {
+			const [key, description] = title.split('-')
 			return `
 				<details>
 					<summary class="bind-title">
-						${title}
+						<strong class="key">${key}</strong>
+						${description || ''}
 						<button onclick="copyToClipboard('txt-${index}')">copiar</button>
 					</summary>
 					${content}
