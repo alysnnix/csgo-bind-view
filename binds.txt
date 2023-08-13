@@ -1,3 +1,12 @@
+Config ||
+Mira = CSGO-vUsAD-RMi9K-2YJ25-tSoZ9-dGpYF
+<br />
+Res = 1280x960 / 4:3
+<br />
+Sen = 1.5 / 400dpi / Mouse acceleration: on / 
+
+---
+
 V - Dropar C4 ||
 bind v "use weapon_knife; use weapon_c4; drop; slot1"
 
