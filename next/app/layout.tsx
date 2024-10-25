@@ -6,6 +6,7 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
+import { AutoThemeSwitcher } from "@/components/layout/auto-theme-switch";
 
 export const metadata: Metadata = {
   title: {
@@ -35,16 +36,15 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "bg-background font-sans antialiased *:h-full",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-              {children}
-            </main>
-          </div>
+          <AutoThemeSwitcher />
+          <main className="relative h-full w-full overflow-hidden">
+            {children}
+          </main>
         </Providers>
       </body>
     </html>
