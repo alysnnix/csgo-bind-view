@@ -8,7 +8,10 @@ import { cn } from "@/styles/cn";
 
 const Item = ({ ...rest }: IDiv) => {
   return (
-    <div {...rest} className={cn("absolute scale-150", rest.className)}>
+    <div
+      {...rest}
+      className={cn("absolute sm:dark:opacity-60 scale-150", rest.className)}
+    >
       {rest.children}
     </div>
   );

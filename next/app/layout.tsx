@@ -37,13 +37,13 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "bg-background font-sans antialiased *:h-full",
+          "bg-background font-sans antialiased",
           fontSans.variable,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <AutoThemeSwitcher />
-          <main className="relative h-full w-full overflow-hidden">
+          <main className="relative min-h-screen w-full overflow-hidden">
             <BlurBackground />
             {children}
           </main>
