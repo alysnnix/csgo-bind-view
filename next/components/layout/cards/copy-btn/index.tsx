@@ -11,5 +11,12 @@ export default function CopyBtn({ text }: Props) {
     navigator.clipboard.writeText(text);
   };
 
-  return <Button onClick={handleClick}>Copiar</Button>;
+  return (
+    <Button
+      className="bg-foreground-600 bg-opacity-80 text-background font-bold"
+      onClick={handleClick}
+    >
+      Copiar
+    </Button>
+  );
 }

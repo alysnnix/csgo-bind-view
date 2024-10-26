@@ -15,10 +15,10 @@ interface Props {
 export default function SingleCard({ description, code, name, index }: Props) {
   return (
     <Card
-      className="w-full opacity-0 animate-fade-up animate-duration-300 animate-ease-in-out animate-fill-forwards"
+      className="w-full bg-opacity-90 opacity-0 animate-fade-up animate-duration-300 animate-ease-in-out animate-fill-forwards"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
-      <CardHeader className="flex w-full justify-between items-center px-6">
+      <CardHeader className="flex w-full justify-between items-center sm:px-6">
         <p className="text-xl font-bold">{name}</p>
 
         <Suspense fallback={<CopyBtnShimmer />}>
@@ -28,9 +28,11 @@ export default function SingleCard({ description, code, name, index }: Props) {
 
       <Divider />
 
-      <CardBody className="flex flex-col gap-2 px-6 pb-6">
+      <CardBody className="flex flex-col gap-2 sm:px-6 pb-4 sm:pb-6 justify-between">
         <p>{description}</p>
-        <div className="bg-foreground-100 p-2 rounded-xl">{code}</div>
+        <div className="bg-foreground-100 bg-opacity-80 border border-foreground-300 p-2 rounded-xl select-all">
+          {code}
+        </div>
       </CardBody>
     </Card>
   );
