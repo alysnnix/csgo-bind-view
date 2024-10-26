@@ -1,6 +1,9 @@
 import SingleCard from "@/components/layout/cards";
+import ParseService from "@/lib/parseConfig";
 
 export default async function Home() {
+  const response = await ParseService.Cloud.run("hello");
+
   return (
     <section className="flex flex-col items-center justify-center gap-10 py-10 px-6 w-full">
       <div>
@@ -15,7 +18,7 @@ export default async function Home() {
           {Array.from({ length: 6 }).map((_, index) => (
             <SingleCard
               key={index}
-              code="bind f1 say_team gg"
+              code={response}
               description="Say gg in team chat"
               index={index}
               title="GG"
