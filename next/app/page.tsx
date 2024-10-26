@@ -1,29 +1,4 @@
-"use client";
-
-import { Card, CardHeader, CardBody } from "@nextui-org/card";
-import { Button, ScrollShadow } from "@nextui-org/react";
-
-function SingleCard() {
-  return (
-    <Card className="max-w-[400px]">
-      <CardHeader className="flex w-full justify-between items-center">
-        <p className="text-md">NextUI</p>
-        <Button>Copiar</Button>
-      </CardHeader>
-      <CardBody className="flex flex-col gap-2">
-        <p>Make beautiful websites regardless of your design experience.</p>
-        <div className="bg-foreground-100 p-2 rounded-xl">
-          <ScrollShadow hideScrollBar className="w-full h-[60px]">
-            cl_automate 1 cl_automate 1 cl_automate 1 cl_automate 1 cl_automate
-            1 cl_automate 1 cl_automate 1 cl_automate 1 cl_automate 1
-            cl_automate 1 cl_automate 1 cl_automate 1 cl_automate 1 cl_automate
-            1
-          </ScrollShadow>
-        </div>
-      </CardBody>
-    </Card>
-  );
-}
+import SingleCard from "@/components/layout/cards";
 
 export default function Home() {
   return (
@@ -36,17 +11,11 @@ export default function Home() {
       </div>
 
       <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-6">
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
-        <SingleCard />
+        <SingleCard
+          code="bind f1 say_team gg"
+          description="Say gg in team chat"
+          title="GG"
+        />
       </div>
     </section>
   );
