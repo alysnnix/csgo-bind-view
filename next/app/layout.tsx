@@ -6,8 +6,8 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { AutoThemeSwitcher } from "@/components/layout/auto-theme-switch";
-import BlurBackground from "@/components/layout/blur-background";
+import { AutoThemeSwitcher } from "@/components/shared/auto-theme-switch";
+import BlurBackground from "@/components/shared/blur-background";
 
 export const metadata: Metadata = {
   title: {
