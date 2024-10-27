@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
+import React from "react";
 
 import { Providers } from "./providers";
 
@@ -8,6 +9,8 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { AutoThemeSwitcher } from "@/components/shared/auto-theme-switch";
 import BlurBackground from "@/components/shared/blur-background";
+import Navigation from "@/components/layout/navigation";
+import NavigationShimmer from "@/components/layout/navigation/navigation-shimmer";
 
 export const metadata: Metadata = {
   title: {
@@ -43,10 +46,16 @@ export default function RootLayout({
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <AutoThemeSwitcher />
-          <main className="relative min-h-screen w-full overflow-hidden">
+
+          <div className="relative min-h-screen w-full overflow-hidden pt-[4rem]">
             <BlurBackground />
-            {children}
-          </main>
+
+            <React.Suspense fallback={<NavigationShimmer />}>
+              <Navigation />
+            </React.Suspense>
+
+            <main>{children}</main>
+          </div>
         </Providers>
       </body>
     </html>

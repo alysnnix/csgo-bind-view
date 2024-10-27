@@ -3,7 +3,7 @@ import React from "react";
 import PublicBindsCards from "@/components/layout/public-binds-cards";
 import CardsShimmer from "@/components/layout/public-binds-cards/cards-shimmer";
 
-export default async function Home() {
+export default function Page() {
   return (
     <section className="flex flex-col items-center justify-center gap-10 py-10 px-6 w-full">
       <div className="w-full h-full flex items-center justify-center">
