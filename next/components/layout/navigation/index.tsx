@@ -7,12 +7,10 @@ import {
   NavbarItem,
   Link,
   Button,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
 } from "@nextui-org/react";
+import { Suspense } from "react";
 
-import EditSVG from "@/assets/svg/edit";
+import NickLink from "./nick-link";
 
 export default function Navigation() {
   return (
@@ -21,25 +19,9 @@ export default function Navigation() {
         <p className="font-bold text-inherit text-md sm:text-xl">
           CS BIND VIEW
         </p>
-        <Popover showArrow className="max-w-[280px]" placement="bottom">
-          <PopoverTrigger>
-            <span className="text-primary font-bold text-md sm:text-xl cursor-pointer flex items-end gap-1">
-              /public
-              <EditSVG className="w-4 hidden sm:block" />
-            </span>
-          </PopoverTrigger>
-          <PopoverContent>
-            <div className="px-1 py-2 flex flex-col gap-2">
-              <div className="text-small font-bold">
-                Este é o seu nick de bind personalizado 😍
-              </div>
-              <div className="text-tiny">
-                Faça login ou crie uma conta para alterar e criar o seu próprio
-                nick de bind
-              </div>
-            </div>
-          </PopoverContent>
-        </Popover>
+        <Suspense fallback={<h1>...</h1>}>
+          <NickLink />
+        </Suspense>
       </NavbarBrand>
 
       <NavbarContent justify="end">
@@ -47,7 +29,7 @@ export default function Navigation() {
           <Link href="#">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" size="md" variant="flat">
+          <Button as={Link} color="primary" href="#" size="sm" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
