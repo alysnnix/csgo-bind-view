@@ -1,11 +1,14 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Card, CardBody, CardHeader, CardProps } from "@nextui-org/card";
 import { Divider } from "@nextui-org/divider";
 
 import CopyBtnShimmer from "./copy-btn/shimmer";
 
-export default function SingleCardShimmer() {
+export default function SingleCardShimmer({ ...rest }: CardProps) {
   return (
-    <Card className="w-full bg-opacity-90 animate-duration-300 animate-ease-in-out animate-fill-forwards">
+    <Card
+      {...rest}
+      className="w-full bg-opacity-90 animate-duration-300 animate-ease-in-out animate-fill-forwards"
+    >
       <CardHeader className="flex w-full justify-between items-center sm:px-6">
         <div className="font-bold animate-shimmer rounded-md min-h-[30px] min-w-[100px] w-full max-w-[150px] px-6" />
         <CopyBtnShimmer />
