@@ -18,7 +18,7 @@ export default function SingleCard({ description, code, name, index }: Props) {
       className="w-full bg-opacity-90 opacity-0 animate-fade-up animate-duration-300 animate-ease-in-out animate-fill-forwards"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
-      <CardHeader className="flex w-full justify-between items-center sm:px-6">
+      <CardHeader className="flex gap-4 w-full justify-between items-center sm:px-6">
         <p className="text-xl font-bold">{name}</p>
 
         <Suspense fallback={<CopyBtnShimmer />}>
