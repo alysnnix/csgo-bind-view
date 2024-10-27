@@ -3,7 +3,7 @@ import { Divider } from "@nextui-org/divider";
 
 import CopyBtnShimmer from "./copy-btn/shimmer";
 
-export default function CardShimmer() {
+export default function SingleCardShimmer() {
   return (
     <Card className="w-full bg-opacity-90 animate-duration-300 animate-ease-in-out animate-fill-forwards">
       <CardHeader className="flex w-full justify-between items-center sm:px-6">
