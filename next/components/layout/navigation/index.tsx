@@ -16,9 +16,9 @@ export default function Navigation() {
   return (
     <Navbar className="fixed top-0 left-0">
       <NavbarBrand className="flex flex-row gap-1">
-        <p className="font-bold text-inherit text-md sm:text-xl">
+        <Link className="font-bold text-inherit text-md sm:text-xl" href="/">
           CS BIND VIEW
-        </p>
+        </Link>
         <Suspense fallback={<h1>...</h1>}>
           <NickLink />
         </Suspense>
@@ -26,10 +26,16 @@ export default function Navigation() {
 
       <NavbarContent justify="end">
         <NavbarItem className="hidden lg:flex">
-          <Link href="#">Login</Link>
+          <Link href="/login">Login</Link>
         </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="primary" href="#" size="sm" variant="flat">
+          <Button
+            as={Link}
+            color="primary"
+            href="/login"
+            size="sm"
+            variant="flat"
+          >
             Sign Up
           </Button>
         </NavbarItem>

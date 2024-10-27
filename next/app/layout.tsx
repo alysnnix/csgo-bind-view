@@ -32,7 +32,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({
   children,
+  auth,
 }: {
+  auth: React.ReactNode;
   children: React.ReactNode;
 }) {
   return (
@@ -45,8 +47,9 @@ export default function RootLayout({
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <AutoThemeSwitcher />
+          {auth}
 
+          <AutoThemeSwitcher />
           <div className="relative min-h-screen w-full overflow-hidden pt-[4rem]">
             <BlurBackground />
 

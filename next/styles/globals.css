@@ -14,10 +14,12 @@
   }
 }
 
-* {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 250ms;
+html[data-modal-open="true"] {
+  padding-right: 5px !important;
+}
+
+html[data-modal-open="true"] main {
+  padding-top: 24px !important;
 }
 
 *::-webkit-scrollbar {
