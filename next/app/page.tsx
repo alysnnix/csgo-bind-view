@@ -1,6 +1,3 @@
-import { Suspense } from "react";
-
-import PublicBindsCards from "@/components/layout/public-binds-cards";
 import CardsShimmer from "@/components/layout/public-binds-cards/cards-shimmer";
 
 export default async function Home() {
@@ -15,9 +12,10 @@ export default async function Home() {
 
       <div className="w-full h-full flex items-center justify-center">
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-10 w-full sm:max-w-[70%] lg:max-w-[90%] xl:max-w-[80%] mx-auto">
-          <Suspense fallback={<CardsShimmer />}>
+          <CardsShimmer />
+          {/* <Suspense fallback={<CardsShimmer />}>
             <PublicBindsCards />
-          </Suspense>
+          </Suspense> */}
         </div>
       </div>
     </section>
