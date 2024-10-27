@@ -31,9 +31,14 @@ export function SingleModal({ ...rest }: IDiv) {
   }, []);
 
   return (
-    <Modal isOpen className="fixed" onOpenChange={onOpenChange}>
+    <Modal
+      isOpen
+      className="fixed"
+      onClose={handleClose}
+      onOpenChange={onOpenChange}
+    >
       <ModalContent>
-        <ModalHeader className="flex flex-col gap-1">Modal Title</ModalHeader>
+        <ModalHeader className="flex flex-col gap-1">Log in</ModalHeader>
         <ModalBody>{rest.children}</ModalBody>
         <ModalFooter>
           <Button color="danger" variant="light" onPress={() => handleClose()}>
