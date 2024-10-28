@@ -1,4 +1,4 @@
-import { IDiv } from "../../../types/jsx";
+import { IDiv } from "../../../../types/jsx";
 
 import styles from "./styles.module.css";
 

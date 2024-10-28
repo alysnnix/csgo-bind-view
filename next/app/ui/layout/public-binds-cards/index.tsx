@@ -1,4 +1,4 @@
-import SingleCard from "@/components/shared/cards";
+import SingleCard from "@/app/ui/shared/cards";
 import fetchData from "@/lib/fetchData";
 import ParseService from "@/lib/parse/setup";
 

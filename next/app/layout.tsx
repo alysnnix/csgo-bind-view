@@ -7,10 +7,10 @@ import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
-import { AutoThemeSwitcher } from "@/components/shared/auto-theme-switch";
-import BlurBackground from "@/components/shared/blur-background";
-import Navigation from "@/components/layout/navigation";
-import NavigationShimmer from "@/components/layout/navigation/navigation-shimmer";
+import { AutoThemeSwitcher } from "@/app/ui/shared/auto-theme-switch";
+import BlurBackground from "@/app/ui/shared/blur-background";
+import Navigation from "@/app/ui/layout/navigation";
+import NavigationShimmer from "@/app/ui/layout/navigation/navigation-shimmer";
 
 export const metadata: Metadata = {
   title: {

@@ -1,7 +1,7 @@
 import React from "react";
 
-import PublicBindsCards from "@/components/layout/public-binds-cards";
-import CardsShimmer from "@/components/layout/public-binds-cards/cards-shimmer";
+import PublicBindsCards from "@/app/ui/layout/public-binds-cards";
+import CardsShimmer from "@/app/ui/layout/public-binds-cards/cards-shimmer";
 
 export default async function Home() {
   return (
