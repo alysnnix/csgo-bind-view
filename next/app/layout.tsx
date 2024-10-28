@@ -42,15 +42,14 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+          "bg-background font-sans antialiased min-h-screen ",
+          fontSans.variable
+        )}>
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           {auth}
 
           <AutoThemeSwitcher />
-          <div className="relative min-h-screen w-full overflow-hidden pt-[4rem]">
+          <div className="relative w-full overflow-hidden pt-[4rem]">
             <BlurBackground />
 
             <React.Suspense fallback={<NavigationShimmer />}>
