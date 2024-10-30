@@ -13,5 +13,8 @@ export async function createUser(prevState: unknown, formData: FormData) {
 
   await new Promise((resolve) => setTimeout(resolve, 1000));
 
-  return { message: "Please enter a valid email" };
+  return {
+    message: "Please enter a valid email",
+    data: { email, name, password },
+  };
 }

@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import Link from "next/link";
 import { Button, Input } from "@nextui-org/react";
+import { toast } from "sonner";
 
 import { cn } from "@/lib/utils";
 import { createUser } from "@/lib/actions/login";
@@ -18,17 +19,38 @@ type ProfileFormData = z.infer<typeof schema>;
 
 const initialState = {
   message: "",
+  data: {
+    name: "",
+    email: "",
+    password: "",
+  },
 };
 
 export default function LoginForm({ className }: React.ComponentProps<"form">) {
-  const [, formAction, pending] = useActionState(createUser, initialState);
+  const [state, formAction, pending] = useActionState(createUser, initialState);
 
   const {
     register,
     formState: { errors },
+    setValue,
   } = reactHookForm.useForm<ProfileFormData>({
     resolver: zodResolver(schema),
   });
+
+  console.log(pending);
+
+  React.useEffect(() => {
+    if (!pending) {
+      if (state.data) {
+        console.log("oi", state.data);
+        setValue("name", state.data.name);
+        setValue("email", state.data.email);
+        setValue("password", state.data.password);
+      }
+
+      if (state.message) toast(state.message);
+    }
+  }, [pending]);
 
   return (
     <form
@@ -46,6 +68,7 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
                   errors.email && "border-red-500",
                 ),
               }}
+              defaultValue={state.data.email || ""}
               id="email"
               {...register("email")}
               type="email"
@@ -65,7 +88,7 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
                   errors.name && "border-red-500",
                 ),
               }}
-              id="name"
+              defaultValue={state.data.name || ""}
               {...register("name")}
               type="text"
             />
@@ -84,6 +107,7 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
                   errors.password && "border-red-500",
                 ),
               }}
+              defaultValue={state.data.password || ""}
               id="password"
               type="password"
               {...register("password")}
@@ -98,6 +122,7 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
 
         <Button
           className="text-md disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:opacity-20"
+          disabled={pending}
           type="submit"
         >
           {pending ? "Carregando ..." : "Finalizar cadastro"}

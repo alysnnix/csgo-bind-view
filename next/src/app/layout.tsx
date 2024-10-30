@@ -10,6 +10,7 @@ import { AutoThemeSwitcher } from "@/components/shared/auto-theme-switch";
 import { Providers } from "@/providers";
 import Navigation from "@/components/layout/navigation";
 import NavigationShimmer from "@/components/layout/navigation/navigation-shimmer";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "CS Binds View - Home",
@@ -45,6 +46,7 @@ export default function RootLayout({
             </React.Suspense>
 
             <main>{children}</main>
+            <Toaster />
           </div>
         </Providers>
       </body>
