@@ -5,8 +5,8 @@ import type { Metadata, Viewport } from "next";
 import clsx from "clsx";
 
 import BlurBackground from "@/components/shared/blur-background";
-import Providers from "@/providers";
 import { AutoThemeSwitcher } from "@/components/shared/auto-theme-switch";
+import { Providers } from "@/providers";
 
 export const metadata: Metadata = {
   title: "CS Binds View - Home",

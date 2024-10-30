@@ -17,24 +17,22 @@ const config: Config = {
       },
     },
   },
+  darkMode: "class",
   plugins: [
-    nextui(
-      nextui({
-        themes: {
-          light: {
-            colors: {
-              primary: "#FFFFFF",
-            },
-          },
-          dark: {
-            colors: {
-              primary: "#000000",
-            },
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            primary: "blue",
           },
         },
-      }),
-    ),
-    ,
+        dark: {
+          colors: {
+            primary: "red",
+          },
+        },
+      },
+    }),
     require("tailwindcss-animated"),
   ],
 };
