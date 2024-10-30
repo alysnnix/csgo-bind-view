@@ -23,12 +23,12 @@ const config: Config = {
       themes: {
         light: {
           colors: {
-            primary: "blue",
+            primary: "#006FEE",
           },
         },
         dark: {
           colors: {
-            primary: "red",
+            primary: "#006FEE",
           },
         },
       },
