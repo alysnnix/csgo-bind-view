@@ -23,6 +23,8 @@ body {
   padding: 0;
   box-sizing: border-box;
   border-color: var(--border);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {

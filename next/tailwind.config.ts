@@ -15,6 +15,7 @@ const config: Config = {
       colors: {
         "ui-background": "var(--background)",
         "ui-card": "var(--card)",
+        "ui-divider": "var(--divider)",
 
         "ui-foreground": "var(--foreground)",
         "ui-foreground-100": "var(--foreground-100)",

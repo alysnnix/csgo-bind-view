@@ -5,6 +5,8 @@ import localFont from "next/font/local";
 import "../styles/globals.css";
 import clsx from "clsx";
 
+import BlurBackground from "@/components/shared/blur-background";
+
 const geistSans = localFont({
   src: "../fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -39,13 +41,14 @@ export default function RootLayout({
     <html lang="pt-br">
       <body
         className={clsx(
-          "antialiased font-sans",
+          "antialiased font-sans ",
           geistSans.variable,
           geistMono.variable,
         )}
       >
         {auth}
-        <div className="relative w-full overflow-hidden pt-[4rem]">
+        <div className="relative w-full min-h-screen overflow-hidden pt-[4rem]">
+          <BlurBackground />
           <main>{children}</main>
         </div>
       </body>

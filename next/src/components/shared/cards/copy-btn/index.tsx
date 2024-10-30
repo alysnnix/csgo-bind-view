@@ -11,7 +11,7 @@ export default function CopyBtn({ text }: Props) {
 
   return (
     <button
-      className="bg-ui-foreground-500 p-2 rounded-xl bg-opacity-80 text-ui-background font-bold"
+      className="bg-ui-foreground-100 p-2 rounded-lg text-sm bg-opacity-80 text-ui-background font-bold"
       onClick={handleClick}
     >
       Copiar
