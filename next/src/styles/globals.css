@@ -1,3 +1,4 @@
+@import url("../styles/themes/animations.css");
 @import url("../styles/themes/light.css");
 @import url("../styles/themes/dark.css");
 
@@ -6,11 +7,11 @@
 @tailwind utilities;
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--background);
-  min-height: 100vh;
   width: 100%;
+  min-height: 100vh;
   color: var(--foreground);
+  background-color: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 * {
