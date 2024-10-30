@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 
 import { PinkBlurSVG } from "@/assets/svg/blur/pink-blur";
 import { BlueBlurSVG } from "@/assets/svg/blur/blue-blur";
-import { cn } from "@/styles/cn";
+import { cn } from "@/lib/utils";
 
 const Item = ({ ...rest }: IDiv) => {
   return (

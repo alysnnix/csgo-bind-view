@@ -1,3 +1,6 @@
-export default function Divider() {
-  return <div className="w-full h-1 bg-foreground-600 bg-opacity-20" />;
+import { cn } from "@/lib/utils";
+import { IDiv } from "@/types/jsx";
+
+export default function Divider({ ...rest }: IDiv) {
+  return <div className={cn("w-full h-[1px] bg-ui-border", rest.className)} />;
 }
