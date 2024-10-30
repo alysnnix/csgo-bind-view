@@ -10,4 +10,11 @@ body {
   background-color: var(--background);
   min-height: 100vh;
   width: 100%;
+  color: var(--foreground);
+}
+
+* {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
