@@ -1,0 +1,13 @@
+@import url("../styles/themes/light.css");
+@import url("../styles/themes/dark.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  min-height: 100vh;
+  width: 100%;
+}
