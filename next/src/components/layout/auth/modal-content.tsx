@@ -4,8 +4,6 @@ import * as React from "react";
 import { Button, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-import LoginForm from "../layout/auth/login-form";
-
 import { cn } from "@/lib/utils";
 import {
   Dialog,
@@ -25,7 +23,7 @@ import {
 } from "@/components/ui/drawer";
 import { isDesktop } from "@/utils/window";
 
-export function LoginModalForm() {
+export function LoginModalContent({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(true);
   const router = useRouter();
 
@@ -58,10 +56,8 @@ export function LoginModalForm() {
               perder suas preferências!
             </DialogDescription>
           </DialogHeader>
-
           <Divider />
-
-          <LoginForm />
+          {children}
         </DialogContent>
       </Dialog>
     );
@@ -79,7 +75,9 @@ export function LoginModalForm() {
             suas preferências!
           </DrawerDescription>
         </DrawerHeader>
-        <LoginForm className="px-4" />
+
+        {children}
+
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button>Cancel</Button>
