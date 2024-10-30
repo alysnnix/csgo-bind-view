@@ -1,22 +1,12 @@
+import "../styles/globals.css";
+
 import type { Metadata, Viewport } from "next";
 
-import localFont from "next/font/local";
-
-import "../styles/globals.css";
 import clsx from "clsx";
 
 import BlurBackground from "@/components/shared/blur-background";
-
-const geistSans = localFont({
-  src: "../fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Providers from "@/providers";
+import { AutoThemeSwitcher } from "@/components/shared/auto-theme-switch";
 
 export const metadata: Metadata = {
   title: "CS Binds View - Home",
@@ -38,19 +28,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
-      <body
-        className={clsx(
-          "antialiased font-sans ",
-          geistSans.variable,
-          geistMono.variable,
-        )}
-      >
-        {auth}
-        <div className="relative w-full min-h-screen overflow-hidden pt-[4rem]">
-          <BlurBackground />
-          <main>{children}</main>
-        </div>
+    <html suppressHydrationWarning lang="pt-br">
+      <body className={clsx("antialiased font-sans")}>
+        <Providers>
+          <AutoThemeSwitcher />
+          {auth}
+          <div className="relative w-full min-h-screen overflow-hidden pt-[4rem]">
+            <BlurBackground />
+            <main>{children}</main>
+          </div>
+        </Providers>
       </body>
     </html>
   );

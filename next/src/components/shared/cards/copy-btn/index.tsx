@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
+
 interface Props {
   text: string;
 }
@@ -10,11 +12,11 @@ export default function CopyBtn({ text }: Props) {
   };
 
   return (
-    <button
-      className="bg-ui-foreground-100 p-2 rounded-lg text-sm bg-opacity-80 text-ui-background font-bold"
+    <Button
+      className="bg-foreground-600 bg-opacity-80 text-background font-bold"
       onClick={handleClick}
     >
       Copiar
-    </button>
+    </Button>
   );
 }
