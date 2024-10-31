@@ -1,5 +1,5 @@
-import { LoginModalForm } from "@/components/ui/modal";
+import { SignupModal } from "@/components/pages/auth/signup/signup-modal";
 
 export default function Page() {
-  return <LoginModalForm />;
+  return <SignupModal />;
 }

@@ -2,7 +2,7 @@
 
 import ParseService from "../parse/setup";
 
-export async function createUser(prevState: unknown, formData: FormData) {
+export async function signupAction(prevState: unknown, formData: FormData) {
   const email = formData.get("email") as string;
   const name = formData.get("name") as string;
   const password = formData.get("password") as string;
@@ -27,7 +27,11 @@ export async function createUser(prevState: unknown, formData: FormData) {
 
     return {
       message: "User created",
-      data: { email, name, password },
+      data: {
+        email,
+        name,
+        password,
+      },
       status: "success",
     };
   } catch (err) {

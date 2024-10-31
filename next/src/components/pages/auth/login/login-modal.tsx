@@ -4,6 +4,8 @@ import * as React from "react";
 import { Button, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
+import LoginForm from "./login-form";
+
 import { cn } from "@/lib/utils";
 import {
   Dialog,
@@ -23,7 +25,7 @@ import {
 } from "@/components/ui/drawer";
 import { isDesktop } from "@/utils/window";
 
-export function LoginModalContent({ children }: { children: React.ReactNode }) {
+export function LoginModal() {
   const [open, setOpen] = React.useState(true);
   const router = useRouter();
 
@@ -47,17 +49,19 @@ export function LoginModalContent({ children }: { children: React.ReactNode }) {
           )}
         >
           <DialogHeader className="flex flex-col gap-2">
-            <DialogTitle>Faça seu cadastro</DialogTitle>
+            <DialogTitle>Faça login</DialogTitle>
 
             <DialogDescription className="text-sm opacity-90">
-              Faça seu cadastro para salvar suas próprias configurações de binds
-              e personalizar sua experiência de jogo ao máximo. Com uma conta,
+              Faça seu login para salvar suas próprias configurações de binds e
+              personalizar sua experiência de jogo ao máximo. Com uma conta,
               você poderá acessar suas configurações de qualquer lugar e nunca
               perder suas preferências!
             </DialogDescription>
           </DialogHeader>
+
           <Divider />
-          {children}
+
+          <LoginForm closeModal={() => setOpen(false)} />
         </DialogContent>
       </Dialog>
     );
@@ -67,16 +71,16 @@ export function LoginModalContent({ children }: { children: React.ReactNode }) {
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle>Faça seu cadastro</DrawerTitle>
+          <DrawerTitle>Faça login</DrawerTitle>
           <DrawerDescription>
-            Faça seu cadastro para salvar suas próprias configurações de binds e
+            Faça seu login para salvar suas próprias configurações de binds e
             personalizar sua experiência de jogo ao máximo. Com uma conta, você
             poderá acessar suas configurações de qualquer lugar e nunca perder
             suas preferências!
           </DrawerDescription>
         </DrawerHeader>
 
-        {children}
+        <LoginForm className="px-4" closeModal={() => setOpen(false)} />
 
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>

@@ -4,7 +4,7 @@ import * as React from "react";
 import { Button, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-import LoginForm from "../layout/auth/login-form";
+import SignupForm from "./signup-form";
 
 import { cn } from "@/lib/utils";
 import {
@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/drawer";
 import { isDesktop } from "@/utils/window";
 
-export function LoginModalForm() {
+export function SignupModal() {
   const [open, setOpen] = React.useState(true);
   const router = useRouter();
 
@@ -61,7 +61,7 @@ export function LoginModalForm() {
 
           <Divider />
 
-          <LoginForm />
+          <SignupForm />
         </DialogContent>
       </Dialog>
     );
@@ -79,7 +79,9 @@ export function LoginModalForm() {
             suas preferências!
           </DrawerDescription>
         </DrawerHeader>
-        <LoginForm className="px-4" />
+
+        <SignupForm className="px-4" />
+
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
             <Button>Cancel</Button>

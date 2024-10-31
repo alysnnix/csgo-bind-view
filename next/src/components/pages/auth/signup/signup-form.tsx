@@ -10,7 +10,7 @@ import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { createUser } from "@/lib/actions/login";
+import { signupAction } from "@/lib/auth/signup";
 
 const schema = z.object({
   email: z.string().email("Email inválido"),
@@ -36,9 +36,14 @@ type ActionState = {
   status: "success" | "error" | "";
 };
 
-export default function LoginForm({ className }: React.ComponentProps<"form">) {
-  const [state, formAction, pending] = useActionState(createUser, initialState);
+export default function SignupForm({
+  className,
+}: React.ComponentProps<"form">) {
   const router = useRouter();
+  const [state, formAction, pending] = useActionState(
+    signupAction,
+    initialState,
+  );
 
   const {
     register,

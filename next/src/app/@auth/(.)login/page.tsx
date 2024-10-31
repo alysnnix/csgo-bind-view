@@ -1,3 +1,5 @@
+import { LoginModal } from "@/components/pages/auth/login/login-modal";
+
 export default function Page() {
-  return <h1>oi</h1>;
+  return <LoginModal />;
 }

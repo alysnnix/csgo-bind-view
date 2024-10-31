@@ -1,3 +1,5 @@
+import LoginPage from "@/components/pages/auth/login/login-page";
+
 export default function Page() {
-  return <h1>página de login</h1>;
+  return <LoginPage />;
 }
