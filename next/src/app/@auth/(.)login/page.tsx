@@ -1,5 +1,3 @@
-import { LoginModalForm } from "@/components/ui/modal";
-
 export default function Page() {
-  return <LoginModalForm />;
+  return <h1>oi</h1>;
 }

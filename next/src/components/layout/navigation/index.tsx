@@ -32,7 +32,7 @@ export default function Navigation() {
           <Button
             as={Link}
             color="primary"
-            href="/login"
+            href="/signup"
             size="sm"
             variant="flat"
           >

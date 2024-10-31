@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useActionState } from "react";
 import * as reactHookForm from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -5,6 +7,7 @@ import { z } from "zod";
 import Link from "next/link";
 import { Button, Input } from "@nextui-org/react";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
 import { createUser } from "@/lib/actions/login";
@@ -17,17 +20,25 @@ const schema = z.object({
 
 type ProfileFormData = z.infer<typeof schema>;
 
-const initialState = {
+const initialState: ActionState = {
   message: "",
   data: {
     name: "",
     email: "",
     password: "",
   },
+  status: "",
+};
+
+type ActionState = {
+  message: string;
+  data: ProfileFormData;
+  status: "success" | "error" | "";
 };
 
 export default function LoginForm({ className }: React.ComponentProps<"form">) {
   const [state, formAction, pending] = useActionState(createUser, initialState);
+  const router = useRouter();
 
   const {
     register,
@@ -37,18 +48,19 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
     resolver: zodResolver(schema),
   });
 
-  console.log(pending);
-
   React.useEffect(() => {
     if (!pending) {
-      if (state.data) {
-        console.log("oi", state.data);
-        setValue("name", state.data.name);
-        setValue("email", state.data.email);
-        setValue("password", state.data.password);
+      if (state?.data) {
+        setValue("name", state?.data?.name);
+        setValue("email", state?.data?.email);
+        setValue("password", state?.data?.password);
       }
 
-      if (state.message) toast(state.message);
+      if (state?.message) toast(state?.message);
+
+      if (state?.status === "success") {
+        router.push("/login");
+      }
     }
   }, [pending]);
 
@@ -68,12 +80,12 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
                   errors.email && "border-red-500",
                 ),
               }}
-              defaultValue={state.data.email || ""}
+              defaultValue={state?.data?.email || ""}
               id="email"
               {...register("email")}
               type="email"
             />
-            {errors.email && (
+            {errors?.email && (
               <span className="text-red-500 text-sm">
                 {errors.email.message}
               </span>
@@ -88,11 +100,11 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
                   errors.name && "border-red-500",
                 ),
               }}
-              defaultValue={state.data.name || ""}
+              defaultValue={state?.data?.name || ""}
               {...register("name")}
               type="text"
             />
-            {errors.name && (
+            {errors?.name && (
               <span className="text-red-500 text-sm">
                 {errors.name.message}
               </span>
@@ -107,12 +119,12 @@ export default function LoginForm({ className }: React.ComponentProps<"form">) {
                   errors.password && "border-red-500",
                 ),
               }}
-              defaultValue={state.data.password || ""}
+              defaultValue={state?.data?.password || ""}
               id="password"
               type="password"
               {...register("password")}
             />
-            {errors.password && (
+            {errors?.password && (
               <span className="text-red-500 text-sm">
                 {errors.password.message}
               </span>

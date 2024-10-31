@@ -1,20 +1,40 @@
 "use server";
 
+import ParseService from "../parse/setup";
+
 export async function createUser(prevState: unknown, formData: FormData) {
   const email = formData.get("email") as string;
   const name = formData.get("name") as string;
   const password = formData.get("password") as string;
 
-  console.log({
-    email,
-    name,
-    password,
-  });
+  try {
+    if (!email || !name || !password) {
+      throw new Error("Please fill all fields");
+    }
 
-  await new Promise((resolve) => setTimeout(resolve, 1000));
+    const user = new ParseService.User();
 
-  return {
-    message: "Please enter a valid email",
-    data: { email, name, password },
-  };
+    user.set("email", email);
+    user.set("username", name);
+    user.set("password", password);
+
+    await user.signUp(
+      {},
+      {
+        useMasterKey: true,
+      },
+    );
+
+    return {
+      message: "User created",
+      data: { email, name, password },
+      status: "success",
+    };
+  } catch (err) {
+    return {
+      message: err instanceof Error ? err.message : "An error occurred",
+      data: { email, name, password },
+      status: "error",
+    };
+  }
 }
