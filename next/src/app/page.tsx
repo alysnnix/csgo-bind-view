@@ -1,7 +1,7 @@
 import React from "react";
 
-import PublicBindsCards from "../components/layout/public-binds-cards";
-import CardsShimmer from "../components/layout/public-binds-cards/cards-shimmer";
+import PublicBindsCards from "../components/layout/binds-cards/public-binds-card";
+import CardsShimmer from "../components/layout/binds-cards/cards-shimmer";
 
 export default function Home() {
   return (
