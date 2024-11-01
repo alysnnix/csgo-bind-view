@@ -34,7 +34,7 @@ type ActionState = {
 };
 
 interface Props extends React.ComponentProps<"form"> {
-  closeModal: () => void;
+  closeModal?: () => void;
 }
 
 export default function LoginForm({ closeModal, className }: Props) {
@@ -57,7 +57,7 @@ export default function LoginForm({ closeModal, className }: Props) {
 
       if (state?.status === "success") {
         router.push("/" + state?.data?.username);
-        closeModal();
+        if (closeModal) closeModal();
       }
     }
   }, [pending]);

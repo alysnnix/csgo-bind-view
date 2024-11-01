@@ -4,8 +4,6 @@ import * as React from "react";
 import { Button, Divider } from "@nextui-org/react";
 import { useRouter } from "next/navigation";
 
-import LoginForm from "./login-form";
-
 import { cn } from "@/lib/utils";
 import {
   Dialog,
@@ -24,24 +22,38 @@ import {
   DrawerTitle,
 } from "@/components/ui/drawer";
 import { isDesktop } from "@/utils/window";
+import { IDiv } from "@/types/jsx";
 
-export function LoginModal() {
-  const [open, setOpen] = React.useState(true);
+interface Props extends IDiv {
+  title: string;
+  description: string;
+}
+
+export function AuthModal({ title, description, ...rest }: Props) {
   const router = useRouter();
 
-  const handleClose = () => {
-    router.back();
+  const [open, setOpen] = React.useState(true);
+
+  const handleChange = (open: boolean) => {
+    setOpen(open);
+
+    if (!open) {
+      router.back();
+    }
   };
 
-  React.useEffect(() => {
-    if (!open) {
-      handleClose();
-    }
-  }, [open]);
+  const Children = React.useMemo(
+    () =>
+      React.cloneElement(rest.children as React.ReactElement, {
+        closeModal: () => handleChange(false),
+        ...(!isDesktop && { className: "px-4" }),
+      }),
+    [rest.children, isDesktop],
+  );
 
   if (isDesktop) {
     return (
-      <Dialog defaultOpen open onOpenChange={setOpen}>
+      <Dialog defaultOpen open={open} onOpenChange={handleChange}>
         <DialogContent
           className={cn(
             !open && "opacity-0 animate-fade animate-duration-500",
@@ -49,19 +61,16 @@ export function LoginModal() {
           )}
         >
           <DialogHeader className="flex flex-col gap-2">
-            <DialogTitle>Faça login</DialogTitle>
+            <DialogTitle>{title}</DialogTitle>
 
             <DialogDescription className="text-sm opacity-90">
-              Faça seu login para salvar suas próprias configurações de binds e
-              personalizar sua experiência de jogo ao máximo. Com uma conta,
-              você poderá acessar suas configurações de qualquer lugar e nunca
-              perder suas preferências!
+              {description}
             </DialogDescription>
           </DialogHeader>
 
           <Divider />
 
-          <LoginForm closeModal={() => setOpen(false)} />
+          {Children}
         </DialogContent>
       </Dialog>
     );
@@ -71,16 +80,11 @@ export function LoginModal() {
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent>
         <DrawerHeader className="text-left">
-          <DrawerTitle>Faça login</DrawerTitle>
-          <DrawerDescription>
-            Faça seu login para salvar suas próprias configurações de binds e
-            personalizar sua experiência de jogo ao máximo. Com uma conta, você
-            poderá acessar suas configurações de qualquer lugar e nunca perder
-            suas preferências!
-          </DrawerDescription>
+          <DrawerTitle>{title}</DrawerTitle>
+          <DrawerDescription>{description}</DrawerDescription>
         </DrawerHeader>
 
-        <LoginForm className="px-4" closeModal={() => setOpen(false)} />
+        {Children}
 
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>

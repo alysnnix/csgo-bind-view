@@ -2,8 +2,13 @@ import React from "react";
 
 import PublicBindsCards from "@/components/layout/public-binds-cards";
 import CardsShimmer from "@/components/layout/public-binds-cards/cards-shimmer";
+import { getUserFromSession } from "@/lib/auth/session";
 
-export default function Page() {
+export default async function Page() {
+  const user = await getUserFromSession();
+
+  console.log(user);
+
   return (
     <section className="flex flex-col items-center justify-center gap-10 py-10 px-6 w-full h-full">
       <div className="w-full h-full flex items-center justify-center">
