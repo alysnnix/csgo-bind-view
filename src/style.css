@@ -1,0 +1,72 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px)
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0)
+  }
+}
+
+* {
+  color: white;
+  background-color: rgb(36, 36, 36);
+}
+
+body {
+  gap: 50px;
+  display: flex;
+  padding: 20px;
+  flex-direction: column;
+  font-family: sans-serif;
+
+  opacity: 0;
+  animation: fadeIn ease 0.5s forwards;
+}
+
+p {
+  padding: 10px 20px;
+  border-radius: 10px;
+  user-select: text;
+  background: #313131;
+  -webkit-user-select: all;
+  user-select: all;
+}
+
+summary {
+  cursor: pointer;    
+  user-select: none;
+  line-height: 30px;
+  text-transform: uppercase;
+}
+
+button {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  user-select: none;
+  text-transform: capitalize;
+  background-color: rgb(24, 24, 24);
+}
+
+button:hover {
+  background-color: black;
+}
+
+.bind-with-title-content {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.key {
+  border-radius: 5px;
+  padding: 5px;
+  margin: 5px;
+  text-align: center;
+  background-color: #313131;
+}
