@@ -1,0 +1,23 @@
+.seconds {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    font-style: normal;
+    line-height: 20px;
+    font-weight: 500;
+}
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.svg {
+    transform: scale(-1, 1);
+    overflow: visible;
+}
+
+.countDownContainer {
+    transform: rotate(90deg);
+}
