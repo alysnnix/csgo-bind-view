@@ -6,6 +6,8 @@ namespace NodeJS {
     GOOGLE_CLIENT_ID: string;
     GOOGLE_CLIENT_SECRET: string;
 
+    FLAGS_SECRET: string;
+
     B4A_SERVER_URL: string;
     B4A_APPLICATION_ID: string;
     B4A_CLIENT_KEY: string;
