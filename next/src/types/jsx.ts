@@ -1,0 +1,15 @@
+export type IDiv = React.HTMLAttributes<HTMLDivElement>;
+export type IHeader = React.HTMLAttributes<HTMLElement>;
+export type ISpan = React.HTMLAttributes<HTMLSpanElement>;
+export type IButton = React.ButtonHTMLAttributes<HTMLButtonElement>;
+export type IInput = React.InputHTMLAttributes<HTMLInputElement>;
+export type IForm = React.FormHTMLAttributes<HTMLFormElement>;
+export type IImg = React.ImgHTMLAttributes<HTMLImageElement>;
+export type IAnchor = React.AnchorHTMLAttributes<HTMLAnchorElement>;
+export type ISelect = React.SelectHTMLAttributes<HTMLSelectElement>;
+export type IOption = React.OptionHTMLAttributes<HTMLOptionElement>;
+export type ITextarea = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
+export type ILabel = React.LabelHTMLAttributes<HTMLLabelElement>;
+export type ITable = React.TableHTMLAttributes<HTMLTableElement>;
+export type ISvg = React.SVGProps<SVGSVGElement>;
+export type IParagraph = React.HTMLAttributes<HTMLParagraphElement>;

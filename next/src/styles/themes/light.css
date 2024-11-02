@@ -1,0 +1,25 @@
+:root {
+    --background: #fdfdfd;
+    --card: #ffffff;
+    --divider: #11111126;
+
+    --foreground: #111010;
+    --foreground-800: #1c1c1c;
+    --foreground-700: #2c2c2c;
+    --foreground-600: #3c3c3c;
+    --foreground-500: #4c4c4c;
+    --foreground-400: #5c5c5c;
+    --foreground-300: #6c6c6c;
+    --foreground-200: #7c7c7c;
+    --foreground-100: #8c8c8c;
+
+    --border: #cccccc;
+    --border-800: #444444;
+    --border-700: #555555;
+    --border-600: #666666;
+    --border-500: #777777;
+    --border-400: #888888;
+    --border-300: #999999;
+    --border-200: #aaaaaa;
+    --border-100: #bbbbbb;
+}
