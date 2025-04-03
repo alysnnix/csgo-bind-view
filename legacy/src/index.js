@@ -8,7 +8,7 @@ function decodeContent(content) {
 }
 
 async function handleGetBinds() {
-	const user = '4lysson-a';
+	const user = 'alysnnix';
 	const repo = 'csgo-bind-view';
 	const filePath = 'binds.txt';
 	const url = `https://api.github.com/repos/${user}/${repo}/contents/${filePath}?ref=base`;
