@@ -1,5 +1,5 @@
 Config ||
-Launch = -vulkan -w 1024 -h 768 -high -fullscreen -threads 24 +fps_max 0 -nojoy +r_dynamic 0 +engine_low_latency_sleep_after_client_tick true
+Launch = -vulkan -w 1280 -h 960 -high -fullscreen -threads 24 +fps_max 0 -nojoy +r_dynamic 0 +engine_low_latency_sleep_after_client_tick true
 <br />
 Mira = CSGO-vUsAD-RMi9K-2YJ25-tSoZ9-dGpYF
 <br />
