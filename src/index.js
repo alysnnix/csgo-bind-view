@@ -42,7 +42,7 @@ const createDetails = () => {
 			const splitContent = content.split('<br />');
 			const structure = splitContent.map((item) => {
 				const [before, after] = item.split('=');
-				return html`
+				return `
 			          <div class="bind-with-title-content">
 			            <strong>${before}</strong>
 			            <p>${after}</p>
@@ -65,7 +65,7 @@ const createDetails = () => {
 
 		function template(content) {
 			const [key, description] = title.split('-')
-			return html`
+			return `
 				<details>
 					<summary class="bind-title">
 						<strong class="key">${key}</strong>
